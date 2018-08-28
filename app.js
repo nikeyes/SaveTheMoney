@@ -4,7 +4,7 @@ const moment = require('moment');
 const prices_repo = require('./prices_repository');
 
 const config = {
-	inDate: moment().add(1, 'days'), 
+	inDate: moment().add(1, 'days').set({hour:0,minute:0,second:0,millisecond:0}), 
 	outDate: moment('15/01/2019', 'DD/MM/YYYY'), 
 	adults: '3',
 	children: '2',
@@ -90,8 +90,7 @@ let prices = [];
 let promisesPrices = [];
 
 prices_repo.createDatabaseStructureIfNotExists();
-
-let db = prices_repo.openDatabaseConnection();
+const db = prices_repo.openDatabaseConnection();
 
 while (startDate <= endDate) {
 	//Closure para fijar la fecha en la que estamos buscado el precio.
@@ -102,7 +101,6 @@ while (startDate <= endDate) {
 						console.log('Go to process Day:',inDate.format('DD/MM/YYYY'), '...');
 						 getPrice(rooms[i], inDate)
 						.then((price) => {
-							prices.push(price);
 							prices_repo.savePriceInDataBase(db, price, config);
 						});	
 					});
@@ -116,17 +114,11 @@ while (startDate <= endDate) {
 Promise.all(promisesPrices)
 	.then(() => {
 		delay(interval).then(()=>{
-			/*
-			.log('Save Prices....');
-			savePricesInDataBase(prices);
-			*/
-			prices_repo.savePriceHistoryInDataBase();
 			prices_repo.closeDatabaseConnection(db);
-		});				
+		});
 	}).catch((err) => {
 		console.error('ERR:',err.message); 
   });
-
 
 function getPrice(room, inDate) {
 	let url = prepareUrl(config, inDate, room);
