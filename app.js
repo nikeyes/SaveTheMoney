@@ -112,8 +112,12 @@ async function main()
 {
 	console.log('['+moment().format('DD/MM/YYYY hh:mm:ss')+']', 'Start...');
 
-	for(let i=0; i<configs.length; i++){
-		await portaventura.execute(configs[i]);
+	for(let i=0; i<configs.length; i+=5){
+		 portaventura.execute(configs[i]);
+		 portaventura.execute(configs[i+1]);
+		 portaventura.execute(configs[i+2]);
+		 portaventura.execute(configs[i+3]);
+		 await portaventura.execute(configs[i+4]);
 	}
 
 	console.log('['+moment().format('DD/MM/YYYY hh:mm:ss')+']', 'End...');

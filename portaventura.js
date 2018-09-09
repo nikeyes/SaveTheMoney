@@ -13,8 +13,6 @@ class PortAventura {
 			let startDate = config.inDate.clone();
 			let endDate = config.outDate;
 			
-			console.log('Start:',config);
-	
 			_repo.createDatabaseStructureIfNotExists();
 			const db = _repo.openDatabaseConnection();
 			
