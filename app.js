@@ -108,21 +108,19 @@ const configs = [
 	}
 ];
 	
+async function main()
+{
+	console.log('['+moment().format('DD/MM/YYYY hh:mm:ss')+']', 'Start...');
 
-	configs.forEach(async (config) => {
-		await portaventura.execute(config);
-	});
+	for(let i=0; i<configs.length; i++){
+		await portaventura.execute(configs[i]);
+	}
 
+	console.log('['+moment().format('DD/MM/YYYY hh:mm:ss')+']', 'End...');
+}
 
+main();
 
-/*
-  const result = doStuff();
-    if (!isOk(result)) {
-        return reject('result was not ok');
-    }
-    resolve(result);
-});
-*/
 
 
 

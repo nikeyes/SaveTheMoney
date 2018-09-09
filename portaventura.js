@@ -1,32 +1,36 @@
 const cheerio = require('cheerio');
 const requestPromise = require('request-promise');
 const moment = require('moment');
-const prices_repo = require('./prices_repository');
+const _repo = require('./prices_repository');
 
 class PortAventura {
     constructor() {
       
-    }
-
-   async execute(config) {
-        let startDate = config.inDate;
-        let endDate = config.outDate;
-        
-        console.log('Start:',config);
-
-        prices_repo.createDatabaseStructureIfNotExists();
-        const db = prices_repo.openDatabaseConnection();
-        while (startDate <= endDate) {
-            for(let i=0;i<rooms.length;i++){
-                console.log('Go to process Day:',startDate.format('DD/MM/YYYY'), '...');
-                var price = await this.getPrice(config, startDate, rooms[i])
-                prices_repo.savePriceInDataBase(db, price, config);
-            }
-
-            startDate.add(1, 'days');
-        }
-
-        prices_repo.closeDatabaseConnection(db);
+	}
+	
+    execute(config) {
+		return new Promise(async (resolve, reject) => {
+			let startDate = config.inDate.clone();
+			let endDate = config.outDate;
+			
+			console.log('Start:',config);
+	
+			_repo.createDatabaseStructureIfNotExists();
+			const db = _repo.openDatabaseConnection();
+			
+			while (startDate <= endDate) {
+				for(let i=0;i<rooms.length;i++){
+					console.log('['+moment().format('DD/MM/YYYY hh:mm:ss')+']','Go to process Day:',startDate.format('DD/MM/YYYY'), '...');
+					var price = await this.getPrice(config, startDate, rooms[i])
+					_repo.savePriceInDataBase(db, price, config);
+				}
+	
+				startDate.add(1, 'days');
+			}
+	
+			_repo.closeDatabaseConnection(db);
+			resolve();
+		});
     }
 
     
