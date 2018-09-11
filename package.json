@@ -1,20 +1,34 @@
 {
-  "name": "s",
+  "name": "save-the-money",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Jorge Castro <nikey_es@yahoo.es>",
+  "license": "MIT",
   "devDependencies": {},
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "moment": "^2.22.2",
     "request": "^2.88.0",
     "request-promise": "^4.2.2",
-    "sqlite3": "^4.0.2"
-  }
+    "sqlite3": "^4.0.2",
+    "express": "^4.16.3"
+  },
+  "engine": {
+    "node": "*",
+    "npm": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nikeyes/SaveTheMoney.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nikeyes/SaveTheMoney/issues"
+  },
+  "homepage": "https://github.com/nikeyes/SaveTheMoney"
 }
