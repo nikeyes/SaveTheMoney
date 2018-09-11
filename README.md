@@ -11,4 +11,4 @@ sqlite3 -header -csv prices.db "select * from prices_history where price <> '';"
 - oc get pods --selector app=save-the-money  
 - oc rsh <pod-name> -> para abrir consola interactiva  
 - oc rsync <pod-name>:/remote/dir/filename ./local/dir -> para descargar ficheros  
-- oc rsync ./local/dir <pod-name>:/remote/dir --exclude=* --include=<file-name> --no-perm  
+- oc rsync ./local/dir <pod-name>:/remote/dir --exclude=* --include=<file-name> --no-perms  
