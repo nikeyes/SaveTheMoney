@@ -34,7 +34,7 @@ class Prices_Repository {
     };
     
     openDatabaseConnection() {
-      return new sqlite3.Database('./db/prices.db', (err) => {
+      return new sqlite3.Database('/data/db/prices.db', (err) => {
         if (err) {
           return console.error('ERR:',err.message);
         }});
