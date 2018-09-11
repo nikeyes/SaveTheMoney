@@ -5,6 +5,7 @@ Busca el mejor precio y ahorra dinerito
 sqlite3 -header -csv prices.db "select * from prices_history where price <> '';" > prices.csv
 
 ## Openshift commands  
+- node app.js > /data/db/log_fecha.log 2>&1
 - Download CLI: help -> Command Line Tools  
 - oc login https://api.starter-us-east-1.openshift.com --token=<hidden>  
 - oc status    
