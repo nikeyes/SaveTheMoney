@@ -5,7 +5,7 @@ const _repo = require('./prices_repository');
 
 class PortAventura {
     constructor() {
-      
+		_repo.createDatabaseStructureIfNotExists();
 	}
 	
     execute(config) {
@@ -13,7 +13,7 @@ class PortAventura {
 			let startDate = config.inDate.clone();
 			let endDate = config.outDate;
 			
-			_repo.createDatabaseStructureIfNotExists();
+			
 			const db = _repo.openDatabaseConnection();
 			
 			while (startDate <= endDate) {
@@ -38,12 +38,17 @@ class PortAventura {
         return requestPromise(url)
             .then((htmlString) => {
                 const $html = cheerio.load(htmlString);		
-                let price = $html(`span:contains("${room.roomDescription}")`).parent().parent().parent().find('.price').eq(1).text();
-    
+				let priceRoomOnly = $html(`span:contains("${room.roomDescription}")`).parent().parent().parent().find("span:contains('Sólo alojamiento')").parent().parent().parent().find('td').eq(1).find('.price').text()
+				let priceBedAndBreakfast = $html(`span:contains("${room.roomDescription}")`).parent().parent().parent().find("span:contains('Alojamiento y desayuno')").parent().parent().parent().find('td').eq(1).find('.price').text()
+				let priceHalfBoard = $html(`span:contains("${room.roomDescription}")`).parent().parent().parent().find("span:contains('Media pensión')").parent().parent().parent().find('td').eq(1).find('.price').text()
+				let priceFullBoard = $html(`span:contains("${room.roomDescription}")`).parent().parent().parent().find("span:contains('Pensión completa')").parent().parent().parent().find('td').eq(1).find('.price').text()
                 return {
                     roomName: room.roomName,
                     inDate: inDate.format('DD/MM/YYYY'),
-                    price: price.replace(',','.'),
+					priceRoomOnly: priceRoomOnly.replace(',','.'),
+					priceBedAndBreakfast: priceBedAndBreakfast.replace(',','.'),
+					priceHalfBoard: priceHalfBoard.replace(',','.'),
+					priceFullBoard: priceFullBoard.replace(',','.'),
                     trackedDate: moment().format('DD/MM/YYYY HH:mm:ss')
                 };	
                         
