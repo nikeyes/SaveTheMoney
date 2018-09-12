@@ -49,7 +49,7 @@ class Prices_Repository {
     
     openDatabaseConnection() {
       let dbPath = './db/prices.db';
-      if (process.env.OPENSHIFT_NODEJS_PORT === 'YES') {
+      if (process.env.OPENSHIFT_SERVER === 'YES') {
         dbPath = '/data/db/prices.db'; 
       }
 
