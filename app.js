@@ -111,10 +111,10 @@ const configs = [
 async function main()
 {
 	console.log('['+moment().format('DD/MM/YYYY hh:mm:ss')+']', 'Start...');
-
+	let trackedDate = moment().format('DD/MM/YYYY hh:mm:ss');
 	for(let i=0; i<configs.length; i+=2){
-		 portaventura.execute(configs[i]);
-		 await portaventura.execute(configs[i+1]);
+		 portaventura.execute(configs[i], trackedDate);
+		 await portaventura.execute(configs[i+1], trackedDate);
 	}
 
 	console.log('['+moment().format('DD/MM/YYYY hh:mm:ss')+']', 'End...');

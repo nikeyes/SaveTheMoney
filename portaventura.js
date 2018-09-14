@@ -8,7 +8,7 @@ class PortAventura {
 		_repo.createDatabaseStructureIfNotExists();
 	}
 	
-    execute(config) {
+    execute(config, trackedDate) {
 		return new Promise(async (resolve, reject) => {
 			let startDate = config.inDate.clone();
 			let endDate = config.outDate;
@@ -19,7 +19,7 @@ class PortAventura {
 			while (startDate <= endDate) {
 				for(let i=0;i<rooms.length;i++){
 					console.log('['+moment().format('DD/MM/YYYY hh:mm:ss')+']','Go to process Day:',startDate.format('DD/MM/YYYY'), '...');
-					var price = await this.getPrice(config, startDate, rooms[i])
+					var price = await this.getPrice(config, startDate, rooms[i], trackedDate)
 					_repo.savePriceInDataBase(db, price, config);
 				}
 	
@@ -32,7 +32,7 @@ class PortAventura {
     }
 
     
-    getPrice(config, inDate, room) {
+    getPrice(config, inDate, room, trackedDate) {
         let url = this.prepareUrl(config, inDate, room);
     
         return requestPromise(url)
@@ -49,7 +49,7 @@ class PortAventura {
 					priceBedAndBreakfast: priceBedAndBreakfast.replace(',','.'),
 					priceHalfBoard: priceHalfBoard.replace(',','.'),
 					priceFullBoard: priceFullBoard.replace(',','.'),
-                    trackedDate: moment().format('DD/MM/YYYY HH:mm:ss')
+                    trackedDate: trackedDate
                 };	
                         
             })
