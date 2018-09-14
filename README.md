@@ -2,7 +2,7 @@
 Busca el mejor precio y ahorra dinerito  
 
 ## Exportar datos a csv  
-sqlite3 -header -csv prices.db "select * from prices_history where price <> '';" > prices.csv
+sqlite3 -header -csv prices.db "select * from prices_history where price > -1;" > prices.csv
 
 ## Openshift commands  
 - node app.js > /data/db/log_fecha.log 2>&1
