@@ -77,12 +77,22 @@ const configs = [
 		urlBase: urlBase
 	},
 	
-	configPortAventura_2_2 = {
+	configPortAventura_2_2_mas = {
 		inDate: inDate, 
 		outDate: outDate, 
 		adults: '2',
 		children: '2',
 		age1: '4',
+		age2: '4',
+		urlBase: urlBase
+	},
+
+	configPortAventura_2_2_menos = {
+		inDate: inDate, 
+		outDate: outDate, 
+		adults: '2',
+		children: '2',
+		age1: '1',
 		age2: '4',
 		urlBase: urlBase
 	},
