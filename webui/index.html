@@ -2,11 +2,14 @@
     <head>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css"/>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.5/css/fixedHeader.dataTables.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/scroller/1.5.1/css/scroller.dataTables.min.css"/>
         <script type="text/javascript" src=" https://code.jquery.com/jquery-3.3.1.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" src="https://cdn.datatables.net/fixedheader/3.1.5/js/dataTables.fixedHeader.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/scroller/1.5.1/js/dataTables.scroller.min.js"></script>
     </head>
     <body>
+        
         <table id="prices" class="display" width="100%">
             <theader>
                 <tr>
@@ -22,7 +25,7 @@
                     <th>ChildAge3</th>
                     <th>TrackedDate</th>
                 </tr>
-            </theader>
+            </theader> 
             <tfoot>
                 <tr>
                     <th>Id</th>
@@ -39,464 +42,36 @@
                 </tr>
             </tfoot>
         </table>
-        <script>
-            var dataSet = [
-   {
-      "room":"Mansion Lucy",
-      "inDate":"16/09/2018",
-      "priceType":"RoomOnly",
-      "price":"-1",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"null"
-   },
-   {
-      "room":"Mansion Lucy",
-      "inDate":"16/09/2018",
-      "priceType":"BedAndBreakfast",
-      "price":"-1",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"null"
-   },
-   {
-      "room":"Mansion Lucy",
-      "inDate":"16/09/2018",
-      "priceType":"HalfBoard",
-      "price":"-1",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"null"
-   },
-   {
-      "room":"Mansion Lucy",
-      "inDate":"16/09/2018",
-      "priceType":"FullBoard",
-      "price":"-1",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"null"
-   },
-   {
-      "room":"Mansion Lucy",
-      "inDate":"16/09/2018",
-      "priceType":"RoomOnly",
-      "price":"-1",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"null"
-   },
-   {
-      "room":"Mansion Lucy",
-      "inDate":"16/09/2018",
-      "priceType":"HalfBoard",
-      "price":"-1",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"null"
-   },
-   {
-      "room":"Mansion Lucy",
-      "inDate":"16/09/2018",
-      "priceType":"BedAndBreakfast",
-      "price":"-1",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"null"
-   },
-   {
-      "room":"Mansion Lucy",
-      "inDate":"16/09/2018",
-      "priceType":"FullBoard",
-      "price":"-1",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"null"
-   },
-   {
-      "room":"PortAventura Woody",
-      "inDate":"16/09/2018",
-      "priceType":"RoomOnly",
-      "price":"-1",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"null"
-   },
-   {
-      "room":"PortAventura Woody",
-      "inDate":"16/09/2018",
-      "priceType":"HalfBoard",
-      "price":"273",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"null"
-   },
-   {
-      "room":"PortAventura Woody",
-      "inDate":"16/09/2018",
-      "priceType":"BedAndBreakfast",
-      "price":"235",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"null"
-   },
-   {
-      "room":"PortAventura Woody",
-      "inDate":"16/09/2018",
-      "priceType":"FullBoard",
-      "price":"306",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"null"
-   },
-   {
-      "room":"PortAventura Woody",
-      "inDate":"16/09/2018",
-      "priceType":"BedAndBreakfast",
-      "price":"235",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"PortAventura Woody",
-      "inDate":"16/09/2018",
-      "priceType":"RoomOnly",
-      "price":"-1",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"PortAventura Woody",
-      "inDate":"16/09/2018",
-      "priceType":"HalfBoard",
-      "price":"254",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"PortAventura Woody",
-      "inDate":"16/09/2018",
-      "priceType":"FullBoard",
-      "price":"270.5",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"PortAventura Standard",
-      "inDate":"16/09/2018",
-      "priceType":"RoomOnly",
-      "price":"125",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"PortAventura Standard",
-      "inDate":"16/09/2018",
-      "priceType":"BedAndBreakfast",
-      "price":"145",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"PortAventura Standard",
-      "inDate":"16/09/2018",
-      "priceType":"HalfBoard",
-      "price":"164",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"PortAventura Standard",
-      "inDate":"16/09/2018",
-      "priceType":"FullBoard",
-      "price":"180.5",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"PortAventura Standard",
-      "inDate":"16/09/2018",
-      "priceType":"RoomOnly",
-      "price":"125",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"PortAventura Standard",
-      "inDate":"16/09/2018",
-      "priceType":"BedAndBreakfast",
-      "price":"145",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"PortAventura Standard",
-      "inDate":"16/09/2018",
-      "priceType":"HalfBoard",
-      "price":"183",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"PortAventura Standard",
-      "inDate":"16/09/2018",
-      "priceType":"FullBoard",
-      "price":"216",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"Caribe San Juan",
-      "inDate":"16/09/2018",
-      "priceType":"RoomOnly",
-      "price":"-1",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"Caribe San Juan",
-      "inDate":"16/09/2018",
-      "priceType":"BedAndBreakfast",
-      "price":"-1",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"Caribe San Juan",
-      "inDate":"16/09/2018",
-      "priceType":"HalfBoard",
-      "price":"-1",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"Caribe San Juan",
-      "inDate":"16/09/2018",
-      "priceType":"FullBoard",
-      "price":"-1",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"Caribe San Juan",
-      "inDate":"16/09/2018",
-      "priceType":"RoomOnly",
-      "price":"-1",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"Caribe San Juan",
-      "inDate":"16/09/2018",
-      "priceType":"BedAndBreakfast",
-      "price":"-1",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"Caribe San Juan",
-      "inDate":"16/09/2018",
-      "priceType":"HalfBoard",
-      "price":"-1",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"Caribe San Juan",
-      "inDate":"16/09/2018",
-      "priceType":"FullBoard",
-      "price":"-1",
-      "adults":"2",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"Caribe Standard",
-      "inDate":"16/09/2018",
-      "priceType":"RoomOnly",
-      "price":"-1",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"Caribe Standard",
-      "inDate":"16/09/2018",
-      "priceType":"BedAndBreakfast",
-      "price":"-1",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"Caribe Standard",
-      "inDate":"16/09/2018",
-      "priceType":"HalfBoard",
-      "price":"-1",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   },
-   {
-      "room":"Caribe Standard",
-      "inDate":"16/09/2018",
-      "priceType":"FullBoard",
-      "price":"-1",
-      "adults":"1",
-      "children":"-1",
-      "childAge1":"-1",
-      "childAge2":"-1",
-      "childAge3":"-1",
-      "trackedDate":"15/09/2018 12:27:33"
-   }
-];
+      <script>
      
     $(document).ready(function() {
-        
 
        var table = $('#prices').DataTable( {
-            data: dataSet,
-            fixedHeader: {
-                header: true,
-                footer: true
-            },
-            columns: [
-            { data: 'id' },
+        paging:   true,
+        ordering: true,
+        info:     true,
+        processing: true,
+        deferRender: true,
+        aLengthMenu: [[10, 25, 50, 75, 100, 200], [10, 25, 50, 75, 100, 200]],
+        iDisplayLength: 10,
+        ajax: {
+            url: '/',
+            dataSrc: ''
+        },
+        columns: [
+            { data: 'id', type: "num" },
             { data: 'room' },
-            { data: 'inDate' },
-            { data: 'priceType' },
-            { data: 'price' },
-            { data: 'adults' },
-            { data: 'children' },
-            { data: 'childAge1' },
-            { data: 'childAge2' },
-            { data: 'childAge3' },
-            { data: 'trackedDate' }
-        ]
+            { data: 'inDate', type: "date" },
+            { data: 'price_type' },
+            { data: 'price', type: "num" },
+            { data: 'adults', type: "num" },
+            { data: 'children', type: "num" },
+            { data: 'child_age1', type: "num" },
+            { data: 'child_age2', type: "num" },
+            { data: 'child_age3', type: "num" },
+            { data: 'tracked_date', type: "date" }
+        ],
+        order: [[ 4, "asc" ]],
         });
 
         // Setup - add a text input to each footer cell
@@ -518,9 +93,6 @@
             } );
         });
     });
-    
- 
-   
             </script>
     </body>
 </html>
