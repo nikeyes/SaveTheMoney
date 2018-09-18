@@ -1,12 +1,12 @@
 const express = require('express');
 const app = express();
-const _repo = require('./prices_repository');
+const repo = require('./prices_repository');
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
 var ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
-app.get('/', async (req, res) => {
-    const db = _repo.openDatabaseConnection();
+app.get('/prices', async (req, res) => {
+    const db = repo.openDatabaseConnection();
 
     let sql = `SELECT id as id 
                 ,room as room
@@ -26,7 +26,7 @@ app.get('/', async (req, res) => {
         res.json(rows);
     });
       
-    _repo.closeDatabaseConnection(db);
+    repo.closeDatabaseConnection(db);
 
 });
 

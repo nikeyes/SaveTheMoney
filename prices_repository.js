@@ -46,14 +46,14 @@ class Prices_Repository {
             }
           }); 
     };
-    
+ 
     openDatabaseConnection() {
       let dbPath = './db/prices.db';
       if (process.env.OPENSHIFT_SERVER === 'YES') {
         dbPath = '/data/db/prices.db'; 
       }
 
-      console.log('['+moment().format('DD/MM/YYYY hh:mm:ss')+']', 'dbPath:',dbPath);
+      console.log('['+moment().format('DD/MM/YYYY hh:mm:ss')+']', 'Open:',dbPath);
 
       return new sqlite3.Database(dbPath, (err) => {
         if (err) {
@@ -62,6 +62,8 @@ class Prices_Repository {
     }
     
     closeDatabaseConnection(db) {
+      console.log('['+moment().format('DD/MM/YYYY hh:mm:ss')+']', 'Close.');
+
       db.close((err) => {
         if (err) {
           return console.error('ERR:',err.message);
