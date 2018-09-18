@@ -2,7 +2,7 @@ const moment = require('moment');
 const portaventura = require('./portaventura');
 const urlBase = 'https://booking.portaventura.com/desk/nReservations/jsp/C_Rates.jsp?idPartner=PORTAVENTURA&lang=es&inDay=#inDay#&inMonth=#inMonth#&inYear=#inYear#&outDay=#outDay#&outMonth=#outMonth#&outYear=#outYear#&hotelCode=#hotelCode#&rooms=1&adultsRoom1=#adults#&childrenRoom1=#children#&child1Room1=#age1#&child2Room1=#age2#&idPrm=MBAVENTURA&idONg=X80&idNom=PORTAVENTURA&userCurrency=EUR&fromSearchAvailability=Y';
 const inDate = moment().add(1, 'days').set({hour:0,minute:0,second:0,millisecond:0});
-const outDate = moment('15/01/2019', 'DD/MM/YYYY');
+const outDate = moment('15/01/2020', 'DD/MM/YYYY');
 
 
 const configs = [
