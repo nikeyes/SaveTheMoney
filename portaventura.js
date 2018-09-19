@@ -18,7 +18,7 @@ class PortAventura {
 			
 			while (startDate <= endDate) {
 				for(let i=0;i<rooms.length;i++){
-					console.log('['+moment().format('DD/MM/YYYY hh:mm:ss')+']','Go to process Day:',startDate.format('DD/MM/YYYY'), '...');
+					console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']','Go to process Day:',startDate.format('YYYY-MM-DD'), '...');
 					var price = await this.getPrice(config, startDate, rooms[i], trackedDate)
 					_repo.savePriceInDataBase(db, price, config);
 				}
@@ -44,7 +44,7 @@ class PortAventura {
 				let priceFullBoard = $html(`span:contains("${room.roomDescription}")`).parent().parent().parent().find("span:contains('Pensión completa')").parent().parent().parent().find('td').eq(1).find('.price').text()
                 return {
                     roomName: room.roomName,
-                    inDate: inDate.format('DD/MM/YYYY'),
+                    inDate: inDate.format('YYYY-MM-DD'),
 					priceRoomOnly: priceRoomOnly.replace(',','.'),
 					priceBedAndBreakfast: priceBedAndBreakfast.replace(',','.'),
 					priceHalfBoard: priceHalfBoard.replace(',','.'),

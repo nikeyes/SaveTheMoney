@@ -53,7 +53,7 @@ class Prices_Repository {
         dbPath = '/data/db/prices.db'; 
       }
 
-      console.log('['+moment().format('DD/MM/YYYY hh:mm:ss')+']', 'Open:',dbPath);
+      console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']', 'Open:',dbPath);
 
       return new sqlite3.Database(dbPath, (err) => {
         if (err) {
@@ -62,7 +62,7 @@ class Prices_Repository {
     }
     
     closeDatabaseConnection(db) {
-      console.log('['+moment().format('DD/MM/YYYY hh:mm:ss')+']', 'Close.');
+      console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']', 'Close.');
 
       db.close((err) => {
         if (err) {
