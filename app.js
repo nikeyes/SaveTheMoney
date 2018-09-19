@@ -96,6 +96,16 @@ const configs = [
 		age2: '4',
 		urlBase: urlBase
 	},
+
+	configPortAventura_2_2_mayores = {
+		inDate: inDate, 
+		outDate: outDate, 
+		adults: '2',
+		children: '2',
+		age1: '2',
+		age2: '5',
+		urlBase: urlBase
+	},
 	
 	configPortAventura_3_2 = {
 		inDate: inDate, 
@@ -114,6 +124,16 @@ const configs = [
 		children: '2',
 		age1: '1',
 		age2: '4',
+		urlBase: urlBase
+	},
+
+	configPortAventura_3_2_mayores = {
+		inDate: inDate, 
+		outDate: outDate, 
+		adults: '3',
+		children: '2',
+		age1: '2',
+		age2: '5',
 		urlBase: urlBase
 	}
 ];
