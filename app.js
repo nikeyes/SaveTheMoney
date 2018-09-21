@@ -142,9 +142,8 @@ async function main()
 {
 	console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']', 'Start...');
 	let trackedDate = moment().format('YYYY-MM-DD HH:mm:ss');
-	for(let i=0; i<configs.length; i+=2){
-		 portaventura.execute(configs[i], trackedDate);
-		 await portaventura.execute(configs[i+1], trackedDate);
+	for(let i=0; i<configs.length; i+=1){
+		 await portaventura.execute(configs[i], trackedDate);
 	}
 
 	console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']', 'End...');
