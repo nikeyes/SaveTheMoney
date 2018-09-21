@@ -11,22 +11,6 @@
     <body>
         
         <table id="prices" class="display" width="100%">
-            <theader>
-                <tr>
-                    <th>Action</th>
-                    <th>Id</th>
-                    <th>Room</th>
-                    <th>InDate</th>
-                    <th>PriceType</th>
-                    <th>Price</th>
-                    <th>Adults</th>
-                    <th>Children</th>
-                    <th>ChildAge1</th>
-                    <th>ChildAge2</th>
-                    <th>ChildAge3</th>
-                    <th>TrackedDate</th>
-                </tr>
-            </theader> 
             <tfoot>
                 <tr>
                     <th>Action</th>
@@ -56,7 +40,10 @@
         deferRender: true,
         aLengthMenu: [[10, 25, 50, 75, 100, 200], [10, 25, 50, 75, 100, 200]],
         iDisplayLength: 10,
-        autoWidth: false,
+        fixedHeader: {
+            header: true,
+            footer: true
+        },
         ajax: {
             url: '/prices',
             dataSrc: ''
@@ -64,25 +51,25 @@
         columns: [
             {
                 data: null,
-                defaultContent: "<button>Click!</button>"
+                defaultContent: "<button>Ver</button>"
             },
-            { data: 'id', type: "num" },
-            { data: 'room' },
-            { data: 'inDate', type: "date" },
-            { data: 'price_type' },
-            { data: 'price', type: "num" },
-            { data: 'adults', type: "num" },
-            { data: 'children', type: "num" },
-            { data: 'child_age1', type: "num" },
-            { data: 'child_age2', type: "num" },
-            { data: 'child_age3', type: "num" },
-            { data: 'tracked_date', type: "date" }
+            { title: 'Id', data: 'id', type: "num" },
+            { title: 'Room', data: 'room' },
+            { title: 'InDate', data: 'inDate', type: "date" },
+            { title: 'Type', data: 'price_type' },
+            { title: 'Price', data: 'price', type: "num" },
+            { title: 'Adults', data: 'adults', type: "num" },
+            { title: 'Children', data: 'children', type: "num" },
+            { title: 'Age1', data: 'child_age1', type: "num" },
+            { title: 'Age2', data: 'child_age2', type: "num" },
+            { title: 'Age3', data: 'child_age3', type: "num" },
+            { title: 'TrackedDate', data: 'tracked_date', type: "date" }
         ],
         order: [[ 5, "asc" ]],
         });
 
         // Setup - add a text input to each footer cell
-        $('#prices tfoot th').each( function () {
+        $('#prices thead th').each( function () {
             var title = $(this).text();
             $(this).html( '<input type="text" placeholder="'+title+'" style="width:50px"/>' );
         });
@@ -91,7 +78,7 @@
         table.columns().every( function () {
             var that = this;
     
-            $( 'input', this.footer() ).on( 'keyup change', function () {
+            $( 'input', this.header() ).on( 'keyup change', function () {
                 if ( that.search() !== this.value ) {
                     that
                         .search( this.value )
