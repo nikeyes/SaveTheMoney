@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
 const repo = require('./prices_repository');
+const portaventura = require('./portaventura');
+const moment = require('moment');
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
 var ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
-app.get('/prices', async (req, res) => {
+app.get('/prices', async (req, res) => {   
     const db = repo.openDatabaseConnection();
 
     let sql = `SELECT id as id 
@@ -29,6 +31,18 @@ app.get('/prices', async (req, res) => {
     repo.closeDatabaseConnection(db);
 
 });
+
+app.get('/get_redirect', async (req, res) => { 
+    let url = portaventura.prepareUrl(7241693, 
+                                    moment(req.query.inDate), 
+                                    req.query.adults,
+                                    req.query.children,
+                                    req.query.child_age1,
+                                    req.query.child_age2,
+                                    req.query.child_age3);
+    res.end(url);
+}); 
+
 
 
 app.listen(port, ip);

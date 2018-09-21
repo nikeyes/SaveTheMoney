@@ -13,6 +13,7 @@
         <table id="prices" class="display" width="100%">
             <theader>
                 <tr>
+                    <th>Action</th>
                     <th>Id</th>
                     <th>Room</th>
                     <th>InDate</th>
@@ -28,6 +29,7 @@
             </theader> 
             <tfoot>
                 <tr>
+                    <th>Action</th>
                     <th>Id</th>
                     <th>Room</th>
                     <th>InDate</th>
@@ -54,11 +56,16 @@
         deferRender: true,
         aLengthMenu: [[10, 25, 50, 75, 100, 200], [10, 25, 50, 75, 100, 200]],
         iDisplayLength: 10,
+        autoWidth: false,
         ajax: {
             url: '/prices',
             dataSrc: ''
         },
         columns: [
+            {
+                data: null,
+                defaultContent: "<button>Click!</button>"
+            },
             { data: 'id', type: "num" },
             { data: 'room' },
             { data: 'inDate', type: "date" },
@@ -91,6 +98,13 @@
                         .draw();
                 }
             } );
+        });
+
+        $('#prices tbody').on( 'click', 'button', function () {
+            var data = table.row( $(this).parents('tr') ).data();
+            $.get( "/get_redirect",data, function( url ) {
+                window.open(url , "_blank");
+            });
         });
     });
             </script>

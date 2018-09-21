@@ -8,12 +8,19 @@ class PortAventura {
 		_repo.createDatabaseStructureIfNotExists();
 	}
 	
-    execute(config, trackedDate) {
+	async start(){
+		let trackedDate = moment().format('YYYY-MM-DD HH:mm:ss');
+		for(let i=0; i<configs.length; i+=1){
+		 	await this.execute(configs[i], trackedDate);
+		}
+
+	}
+
+	execute(config, trackedDate) {
 		return new Promise(async (resolve, reject) => {
-			let startDate = config.inDate.clone();
-			let endDate = config.outDate;
-			
-			
+			let startDate = inDate.clone();
+			let endDate = outDate;
+
 			const db = _repo.openDatabaseConnection();
 			
 			while (startDate <= endDate) {
@@ -33,7 +40,14 @@ class PortAventura {
 
     
     getPrice(config, inDate, room, trackedDate) {
-        let url = this.prepareUrl(config, inDate, room);
+
+		let url = this.prepareUrl(room.hotelCode, 
+									inDate, 
+									config.adults, 
+									config.children, 
+									config.child_age1, 
+									config.child_age2, 
+									config.child_age3);
     
         return requestPromise(url)
             .then((htmlString) => {
@@ -58,26 +72,138 @@ class PortAventura {
             });
     }
     
-    prepareUrl(config, inDate,  room) {
+    prepareUrl(hotelCode, inDate, adults, children, child_age1, child_age2, child_age3) {
     
         let outDate = moment(inDate);
         outDate.add(1, 'days');
     
-        let url = config.urlBase ;
+		let url = urlBase ;
+		url = url.replace('#hotelCode#', hotelCode);
         url = url.replace('#inDay#', inDate.format('DD'));
         url = url.replace('#inMonth#', inDate.format('MM'));
         url = url.replace('#inYear#', inDate.format('YYYY'));
         url = url.replace('#outDay#', outDate.format('DD'));
         url = url.replace('#outMonth#', outDate.format('MM'));
         url = url.replace('#outYear#', outDate.format('YYYY'));
-        url = url.replace('#adults#', config.adults);
-        url = url.replace('#children#', config.children);
-        url = url.replace('#age1#', config.age1);
-        url = url.replace('#age2#', config.age2);
-        url = url.replace('#hotelCode#', room.hotelCode);
+        url = url.replace('#adults#', adults);
+        url = url.replace('#children#', children==-1?0:children);
+        url = url.replace('#child_age1#', child_age1==-1?0:child_age1);
+		url = url.replace('#child_age2#', child_age2==-1?0:child_age2);
+		url = url.replace('#child_age3#', child_age3==-1?0:child_age3);
         return url;
     }
 }
+
+const urlBase = 'https://booking.portaventura.com/desk/nReservations/jsp/C_Rates.jsp?idPartner=PORTAVENTURA&lang=es&inDay=#inDay#&inMonth=#inMonth#&inYear=#inYear#&outDay=#outDay#&outMonth=#outMonth#&outYear=#outYear#&hotelCode=#hotelCode#&rooms=1&adultsRoom1=#adults#&childrenRoom1=#children#&child1Room1=#child_age1#&child2Room1=#child_age2#&child3Room1=#child_age3#&idPrm=MBAVENTURA&idONg=X80&idNom=PORTAVENTURA&userCurrency=EUR&fromSearchAvailability=Y';
+const inDate = moment().add(1, 'days').set({hour:0,minute:0,second:0,millisecond:0});
+const outDate = moment('2020-01-15', 'YYYY-MM-DD');
+
+const configs = [
+	
+	configPortAventura_1_0 = { 
+		adults: '1',
+		children: '-1',
+		child_age1: '-1',
+		child_age2: '-1',
+		child_age3: '-1'
+	}, 
+	
+	configPortAventura_2_0 = {
+		adults: '2',
+		children: '-1',
+		child_age1: '-1',
+		child_age2: '-1',
+		child_age3: '-1'
+	},
+	
+	configPortAventura_3_0 = { 
+		adults: '3',
+		children: '-1',
+		child_age1: '-1',
+		child_age2: '-1',
+		child_age3: '-1'
+	},
+	
+	configPortAventura_1_1_menos = { 
+		adults: '1',
+		children: '1',
+		child_age1: '1',
+		child_age2: '-1',
+		child_age3: '-1'
+	},
+	
+	configPortAventura_1_1_mas = { 
+		adults: '1',
+		children: '1',
+		child_age1: '4',
+		child_age2: '-1',
+		child_age3: '-1'
+	},
+	
+	configPortAventura_2_1_menos = {
+		adults: '2',
+		children: '1',
+		child_age1: '1',
+		child_age2: '-1',
+		child_age3: '-1'
+	},
+	
+	configPortAventura_2_1_mas = { 
+		adults: '2',
+		children: '1',
+		child_age1: '4',
+		child_age2: '-1',
+		child_age3: '-1'
+	},
+	
+	configPortAventura_2_2_mas = {
+		adults: '2',
+		children: '2',
+		child_age1: '4',
+		child_age2: '4',
+		child_age3: '-1'
+	},
+
+	configPortAventura_2_2_menos = { 
+		adults: '2',
+		children: '2',
+		child_age1: '1',
+		child_age2: '4',
+		child_age3: '-1'
+	},
+
+	configPortAventura_2_2_mayores = { 
+		adults: '2',
+		children: '2',
+		child_age1: '2',
+		child_age2: '5',
+		child_age3: '-1'
+	},
+	
+	configPortAventura_3_2 = {
+		adults: '3',
+		children: '2',
+		child_age1: '4',
+		child_age2: '4',
+		child_age3: '-1'
+	},
+	
+	configPortAventura_3_2_menos = { 
+		adults: '3',
+		children: '2',
+		child_age1: '1',
+		child_age2: '4',
+		child_age3: '-1'
+	},
+
+	configPortAventura_3_2_mayores = {
+		adults: '3',
+		children: '2',
+		child_age1: '2',
+		child_age2: '5',
+		child_age3: '-1'
+	}
+];
 
 const rooms = [
 	{
@@ -146,4 +272,5 @@ const rooms = [
 		roomDescription: 'Standard'
 	}
 ];
+
 module.exports = new PortAventura();
