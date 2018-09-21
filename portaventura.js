@@ -91,12 +91,22 @@ class PortAventura {
 		url = url.replace('#child_age2#', child_age2==-1?0:child_age2);
 		url = url.replace('#child_age3#', child_age3==-1?0:child_age3);
         return url;
-    }
+	}
+	
+	getHotelCode(roomDesc){
+		for(var i = 0; i < rooms.length; i++)
+		{
+			if(rooms[i].roomName == roomDesc)
+			{
+				return rooms[i].hotelCode;
+			}
+		}
+	}
 }
 
 const urlBase = 'https://booking.portaventura.com/desk/nReservations/jsp/C_Rates.jsp?idPartner=PORTAVENTURA&lang=es&inDay=#inDay#&inMonth=#inMonth#&inYear=#inYear#&outDay=#outDay#&outMonth=#outMonth#&outYear=#outYear#&hotelCode=#hotelCode#&rooms=1&adultsRoom1=#adults#&childrenRoom1=#children#&child1Room1=#child_age1#&child2Room1=#child_age2#&child3Room1=#child_age3#&idPrm=MBAVENTURA&idONg=X80&idNom=PORTAVENTURA&userCurrency=EUR&fromSearchAvailability=Y';
-const inDate = moment().add(1, 'days').set({hour:0,minute:0,second:0,millisecond:0});
-const outDate = moment('2020-01-15', 'YYYY-MM-DD');
+const inDate = moment('2019-01-01', 'YYYY-MM-DD');
+const outDate = moment('2019-01-01', 'YYYY-MM-DD');
 
 const configs = [
 	

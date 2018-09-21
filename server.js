@@ -33,7 +33,10 @@ app.get('/prices', async (req, res) => {
 });
 
 app.get('/get_redirect', async (req, res) => { 
-    let url = portaventura.prepareUrl(7241693, 
+    
+    let hotelCode = portaventura.getHotelCode(req.query.room);
+    
+    let url = portaventura.prepareUrl(hotelCode, 
                                     moment(req.query.inDate), 
                                     req.query.adults,
                                     req.query.children,
