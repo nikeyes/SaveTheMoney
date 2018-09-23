@@ -14,7 +14,7 @@ app.get('/prices', async (req, res) => {
                 ,room as room
                 ,inDate as inDate
                 ,price_type as price_type
-                ,price 
+                ,price as price
                 ,adults as adults
                 ,children as children
                 ,child_age1 as child_age1
