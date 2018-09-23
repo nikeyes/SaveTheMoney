@@ -10,7 +10,7 @@ class PortAventura {
 	
 	async start(){
 		let trackedDate = moment().format('YYYY-MM-DD HH:mm:ss');
-		for(let i=0; i<configs.length; i+=1){
+		for(let i=0; i<configs.length; i){
 		 	await this.execute(configs[i], trackedDate);
 		}
 
@@ -108,7 +108,7 @@ const urlBase = 'https://booking.portaventura.com/desk/nReservations/jsp/C_Rates
 const inDate = moment().add(1, 'days').set({hour:0,minute:0,second:0,millisecond:0});
 const outDate = moment('2020-01-15', 'YYYY-MM-DD');
 
-/*const configs = [
+const configs = [
 	
 	configPortAventura_1_0 = { 
 		adults: '1',
@@ -118,62 +118,6 @@ const outDate = moment('2020-01-15', 'YYYY-MM-DD');
 		child_age3: '-1'
 	}, 
 	
-	configPortAventura_2_0 = {
-		adults: '2',
-		children: '-1',
-		child_age1: '-1',
-		child_age2: '-1',
-		child_age3: '-1'
-	},
-	
-	configPortAventura_3_0 = { 
-		adults: '3',
-		children: '-1',
-		child_age1: '-1',
-		child_age2: '-1',
-		child_age3: '-1'
-	},
-	
-	configPortAventura_1_1_menos = { 
-		adults: '1',
-		children: '1',
-		child_age1: '1',
-		child_age2: '-1',
-		child_age3: '-1'
-	},
-	
-	configPortAventura_1_1_mas = { 
-		adults: '1',
-		children: '1',
-		child_age1: '4',
-		child_age2: '-1',
-		child_age3: '-1'
-	},
-	
-	configPortAventura_2_1_menos = {
-		adults: '2',
-		children: '1',
-		child_age1: '1',
-		child_age2: '-1',
-		child_age3: '-1'
-	},
-	
-	configPortAventura_2_1_mas = { 
-		adults: '2',
-		children: '1',
-		child_age1: '4',
-		child_age2: '-1',
-		child_age3: '-1'
-	},
-	
-	configPortAventura_2_2_mas = {
-		adults: '2',
-		children: '2',
-		child_age1: '4',
-		child_age2: '4',
-		child_age3: '-1'
-	},
-
 	configPortAventura_2_2_menos = { 
 		adults: '2',
 		children: '2',
@@ -190,14 +134,6 @@ const outDate = moment('2020-01-15', 'YYYY-MM-DD');
 		child_age3: '-1'
 	},
 	
-	configPortAventura_3_2 = {
-		adults: '3',
-		children: '2',
-		child_age1: '4',
-		child_age2: '4',
-		child_age3: '-1'
-	},
-	
 	configPortAventura_3_2_menos = { 
 		adults: '3',
 		children: '2',
@@ -208,30 +144,6 @@ const outDate = moment('2020-01-15', 'YYYY-MM-DD');
 
 	configPortAventura_3_2_mayores = {
 		adults: '3',
-		children: '2',
-		child_age1: '2',
-		child_age2: '5',
-		child_age3: '-1'
-	}
-];*/
-const configs = [
-	
-	configPortAventura_3_2_menos = { 
-		adults: '3',
-		children: '2',
-		child_age1: '1',
-		child_age2: '4',
-		child_age3: '-1'
-	}, 
-	configPortAventura_3_2_mas = { 
-		adults: '3',
-		children: '2',
-		child_age1: '2',
-		child_age2: '5',
-		child_age3: '-1'
-	}, 
-	configPortAventura_2_2 = { 
-		adults: '2',
 		children: '2',
 		child_age1: '2',
 		child_age2: '5',
