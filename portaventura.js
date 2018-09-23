@@ -108,7 +108,7 @@ const urlBase = 'https://booking.portaventura.com/desk/nReservations/jsp/C_Rates
 const inDate = moment().add(1, 'days').set({hour:0,minute:0,second:0,millisecond:0});
 const outDate = moment('2020-01-15', 'YYYY-MM-DD');
 
-const configs = [
+/*const configs = [
 	
 	configPortAventura_1_0 = { 
 		adults: '1',
@@ -208,6 +208,30 @@ const configs = [
 
 	configPortAventura_3_2_mayores = {
 		adults: '3',
+		children: '2',
+		child_age1: '2',
+		child_age2: '5',
+		child_age3: '-1'
+	}
+];*/
+const configs = [
+	
+	configPortAventura_3_2_menos = { 
+		adults: '3',
+		children: '2',
+		child_age1: '1',
+		child_age2: '4',
+		child_age3: '-1'
+	}, 
+	configPortAventura_3_2_mas = { 
+		adults: '3',
+		children: '2',
+		child_age1: '2',
+		child_age2: '5',
+		child_age3: '-1'
+	}, 
+	configPortAventura_2_2 = { 
+		adults: '2',
 		children: '2',
 		child_age1: '2',
 		child_age2: '5',
