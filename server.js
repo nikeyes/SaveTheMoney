@@ -14,7 +14,7 @@ app.get('/prices', async (req, res) => {
                 ,room as room
                 ,inDate as inDate
                 ,price_type as price_type
-                ,CASE price WHEN -1 THEN 999999999 ELSE price END price 
+                ,price 
                 ,adults as adults
                 ,children as children
                 ,child_age1 as child_age1
@@ -23,6 +23,7 @@ app.get('/prices', async (req, res) => {
                 ,tracked_date as tracked_date
                 ,max(tracked_date)
             FROM prices_history
+            WHERE price > -1
             GROUP BY room, indate, price_type, adults, children, child_age1, child_age2, child_age3`;
 
       db.all(sql, function(err, rows) {
