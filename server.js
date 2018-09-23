@@ -1,8 +1,11 @@
 const express = require('express');
-const app = express();
+const compression = require('compression');
 const repo = require('./prices_repository');
 const portaventura = require('./portaventura');
 const moment = require('moment');
+
+let app = express();
+app.use(compression());
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
 var ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
@@ -77,6 +80,6 @@ app.get('/get_redirect', async (req, res) => {
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
 
-app.use(express.static('webui'))
+app.use(express.static('webui'));
 
 module.exports = app;
