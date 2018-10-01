@@ -26,8 +26,10 @@ class PortAventura {
 			while (startDate <= endDate) {
 				for(let i=0;i<rooms.length;i++){
 					console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']','Go to process Day:',startDate.format('YYYY-MM-DD'), '...');
-					var price = await this.getPrice(config, startDate, rooms[i], trackedDate)
-					_repo.savePriceInDataBase(db, price, config);
+					var price = await this.getPrice(config, startDate, rooms[i], trackedDate);
+					if (price != null) {
+						_repo.savePriceInDataBase(db, price, config);
+					}
 				}
 	
 				startDate.add(1, 'days');
@@ -68,7 +70,8 @@ class PortAventura {
                         
             })
             .catch((err) => {
-                console.error('ERR:',err);
+				console.error('ERR:',err);
+				return null;
             });
     }
     
