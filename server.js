@@ -3,6 +3,7 @@ const compression = require('compression');
 const repo = require('./prices_repository');
 const portaventura = require('./portaventura');
 const moment = require('moment');
+var fs = require('fs');
 
 let app = express();
 app.use(compression());
@@ -74,6 +75,24 @@ app.get('/get_redirect', async (req, res) => {
                                     req.query.child_age3);
     res.end(url);
 }); 
+
+app.get('/get_log', async (req, res) => { 
+    
+    fs.readdir('./', function (err, files) {
+        if (err) {
+            return console.error('Unable to scan directory: ' + err);
+        } 
+        files.forEach(function (file) {
+            fs.stat('./'+file, function(err, stats){
+                res.json(stats);
+            });
+        });
+    });
+    
+    
+}); 
+
+
 
 
 
