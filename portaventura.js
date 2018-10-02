@@ -10,8 +10,9 @@ class PortAventura {
 	
 	async start(){
 		let trackedDate = moment().format('YYYY-MM-DD HH:mm:ss');
-		for(let i=0; i<configs.length; i){
-		 	await this.execute(configs[i], trackedDate);
+		for(let i=0; i<configs.length; i+2){
+			this.execute(configs[i], trackedDate);
+		 	await this.execute(configs[i+1], trackedDate);
 		}
 
 	}
