@@ -3,6 +3,7 @@ const compression = require('compression');
 const repo = require('./prices_repository');
 const portaventura = require('./portaventura');
 const moment = require('moment');
+const cron = require("node-cron");
 
 let app = express();
 app.use(compression());
@@ -76,6 +77,11 @@ app.get('/get_redirect', async (req, res) => {
 }); 
 
 
+cron.schedule("00 10 * * *", async function() {
+    console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']', 'Start...');
+	await portaventura.start();
+	console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']', 'End...');
+  });
 
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
