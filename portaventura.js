@@ -114,7 +114,7 @@ const outDate = moment('2020-01-15', 'YYYY-MM-DD');
 
 const configs = [
 	
-	configPortAventura_1_0 = { 
+	/*configPortAventura_1_0 = { 
 		adults: '1',
 		children: '-1',
 		child_age1: '-1',
@@ -144,7 +144,7 @@ const configs = [
 		child_age1: '1',
 		child_age2: '4',
 		child_age3: '-1'
-	},
+	},*/
 
 	configPortAventura_3_2_mayores = {
 		adults: '3',
