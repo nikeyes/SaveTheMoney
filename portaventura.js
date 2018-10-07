@@ -12,7 +12,7 @@ class PortAventura {
 		let trackedDate = moment().format('YYYY-MM-DD HH:mm:ss');
 		for(let i=0; i<configs.length; i+2){
 			this.execute(configs[i], trackedDate);
-		 	await this.execute(configs[i+1], trackedDate);
+			await this.execute(configs[i+1], trackedDate);
 		}
 
 	}
@@ -114,7 +114,7 @@ const outDate = moment('2020-01-15', 'YYYY-MM-DD');
 
 const configs = [
 	
-	/*configPortAventura_1_0 = { 
+	configPortAventura_1_0 = { 
 		adults: '1',
 		children: '-1',
 		child_age1: '-1',
@@ -122,7 +122,7 @@ const configs = [
 		child_age3: '-1'
 	}, 
 	
-	configPortAventura_2_2_menos = { 
+	/*configPortAventura_2_2_menos = { 
 		adults: '2',
 		children: '2',
 		child_age1: '1',

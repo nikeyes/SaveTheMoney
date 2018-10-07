@@ -20,27 +20,26 @@ class Prices_Repository {
     }
     
     savePriceInDataBase(db, priceObject, config) {
-
       db.run('INSERT OR IGNORE INTO PRICES_HISTORY(ROOM, INDATE, PRICE_TYPE, PRICE, ADULTS, CHILDREN, CHILD_AGE1, CHILD_AGE2, CHILD_AGE3, TRACKED_DATE) VALUES(?,?,?,?,?,?,?,?,?,?)'
-          , [priceObject.roomName, priceObject.inDate, 'RoomOnly', priceObject.priceRoomOnly || -1, config.adults || -1, config.children || -1, config.age1 || -1, config.age2 || -1, -1, priceObject.trackedDate], (err) => {
+          , [priceObject.roomName, priceObject.inDate, 'RoomOnly', priceObject.priceRoomOnly || -1, config.adults || -1, config.children || -1, config.child_age1 || -1, config.child_age2 || -1, -1, priceObject.trackedDate], (err) => {
             if (err) {
               return console.error('ERR:',err.message);
             }
           });
       db.run('INSERT OR IGNORE INTO PRICES_HISTORY(ROOM, INDATE, PRICE_TYPE, PRICE, ADULTS, CHILDREN, CHILD_AGE1, CHILD_AGE2, CHILD_AGE3, TRACKED_DATE) VALUES(?,?,?,?,?,?,?,?,?,?)'
-          , [priceObject.roomName, priceObject.inDate, 'BedAndBreakfast', priceObject.priceBedAndBreakfast || -1, config.adults || -1, config.children || -1, config.age1 || -1, config.age2 || -1, -1, priceObject.trackedDate], (err) => {
+          , [priceObject.roomName, priceObject.inDate, 'BedAndBreakfast', priceObject.priceBedAndBreakfast || -1, config.adults || -1, config.children || -1, config.child_age1 || -1, config.child_age2 || -1, -1, priceObject.trackedDate], (err) => {
             if (err) {
               return console.error('ERR:',err.message);
             }
           });
       db.run('INSERT OR IGNORE INTO PRICES_HISTORY(ROOM, INDATE, PRICE_TYPE, PRICE, ADULTS, CHILDREN, CHILD_AGE1, CHILD_AGE2, CHILD_AGE3, TRACKED_DATE) VALUES(?,?,?,?,?,?,?,?,?,?)'
-          , [priceObject.roomName, priceObject.inDate, 'HalfBoard', priceObject.priceHalfBoard || -1, config.adults || -1, config.children || -1, config.age1 || -1, config.age2 || -1, -1, priceObject.trackedDate], (err) => {
+          , [priceObject.roomName, priceObject.inDate, 'HalfBoard', priceObject.priceHalfBoard || -1, config.adults || -1, config.children || -1, config.child_age1 || -1, config.child_age2 || -1, -1, priceObject.trackedDate], (err) => {
             if (err) {
               return console.error('ERR:',err.message);
             }
           });
       db.run('INSERT OR IGNORE INTO PRICES_HISTORY(ROOM, INDATE, PRICE_TYPE, PRICE, ADULTS, CHILDREN, CHILD_AGE1, CHILD_AGE2, CHILD_AGE3, TRACKED_DATE) VALUES(?,?,?,?,?,?,?,?,?,?)'
-          , [priceObject.roomName, priceObject.inDate, 'FullBoard', priceObject.priceFullBoard || -1, config.adults || -1, config.children || -1, config.age1 || -1, config.age2 || -1, -1, priceObject.trackedDate], (err) => {
+          , [priceObject.roomName, priceObject.inDate, 'FullBoard', priceObject.priceFullBoard || -1, config.adults || -1, config.children || -1, config.child_age1 || -1, config.child_age2 || -1, -1, priceObject.trackedDate], (err) => {
             if (err) {
               return console.error('ERR:',err.message);
             }
