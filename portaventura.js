@@ -26,7 +26,7 @@ class PortAventura {
 			
 			while (startDate <= endDate) {
 				for(let i=0;i<rooms.length;i++){
-					console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']','Go to process Day:',startDate.format('YYYY-MM-DD'), '...');
+					console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']','Go to process Day:',startDate.format('YYYY-MM-DD'), ' For Config:', config );
 					var price = await this.getPrice(config, startDate, rooms[i], trackedDate);
 					if (price != null) {
 						_repo.savePriceInDataBase(db, price, config);
