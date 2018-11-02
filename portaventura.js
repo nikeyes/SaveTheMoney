@@ -10,11 +10,9 @@ class PortAventura {
 	
 	async start(){
 		let trackedDate = moment().format('YYYY-MM-DD HH:mm:ss');
-		for(let i=0; i<configs.length; i+2){
-			this.execute(configs[i], trackedDate);
-			await this.execute(configs[i+1], trackedDate);
+		for(let i=0; i<configs.length; i){
+			await this.execute(configs[i], trackedDate);
 		}
-
 	}
 
 	execute(config, trackedDate) {
@@ -121,6 +119,22 @@ const configs = [
 		child_age2: '-1',
 		child_age3: '-1'
 	}, 
+
+	configPortAventura_2_2_mayores = { 
+		adults: '2',
+		children: '2',
+		child_age1: '2',
+		child_age2: '5',
+		child_age3: '-1'
+	},
+
+	configPortAventura_3_2_mayores = {
+		adults: '3',
+		children: '2',
+		child_age1: '2',
+		child_age2: '5',
+		child_age3: '-1'
+	}
 	
 	/*configPortAventura_2_2_menos = { 
 		adults: '2',
@@ -145,14 +159,6 @@ const configs = [
 		child_age2: '4',
 		child_age3: '-1'
 	},*/
-
-	configPortAventura_3_2_mayores = {
-		adults: '3',
-		children: '2',
-		child_age1: '2',
-		child_age2: '5',
-		child_age3: '-1'
-	}
 ];
 
 const rooms = [
