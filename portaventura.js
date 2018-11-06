@@ -24,7 +24,7 @@ class PortAventura {
 			
 			while (startDate <= endDate) {
 				for(let i=0;i<rooms.length;i++){
-					console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']','Go to process Day:',startDate.format('YYYY-MM-DD'), ' For Config:', config );
+					console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']','Go to process Day:',startDate.format('YYYY-MM-DD'), ' For Config:', config.name );
 					var price = await this.getPrice(config, startDate, rooms[i], trackedDate);
 					if (price != null) {
 						_repo.savePriceInDataBase(db, price, config);
@@ -112,7 +112,8 @@ const outDate = moment('2020-01-15', 'YYYY-MM-DD');
 
 const configs = [
 	
-	configPortAventura_1_0 = { 
+	configPortAventura_1_0 = {
+		name: 'configPortAventura_1_0', 
 		adults: '1',
 		children: '-1',
 		child_age1: '-1',
@@ -121,6 +122,7 @@ const configs = [
 	}, 
 
 	configPortAventura_2_2_mayores = { 
+		name: 'configPortAventura_2_2_mayores', 
 		adults: '2',
 		children: '2',
 		child_age1: '2',
@@ -129,6 +131,7 @@ const configs = [
 	},
 
 	configPortAventura_3_2_mayores = {
+		name: 'configPortAventura_3_2_mayores', 
 		adults: '3',
 		children: '2',
 		child_age1: '2',
