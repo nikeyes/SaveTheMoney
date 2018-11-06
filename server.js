@@ -77,11 +77,11 @@ app.get('/get_redirect', async (req, res) => {
 }); 
 
 
-/*cron.schedule("00 10 * * *", async function() {
+cron.schedule("00 07 * * *", async function() {
     console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']', 'Start...');
 	await portaventura.start();
 	console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']', 'End...');
-  });*/
+  });
 
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
