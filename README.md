@@ -15,7 +15,7 @@ sqlite3 -header -csv prices.db "select * from prices_history where price > -1;" 
 - oc rsync ./local/dir pod-name:/remote/dir --exclude=* --include=<file-name> --no-perms  
   
  ## Edad niños:  
- 0-1  
- 2-6  
- 7-12  
+ 0-1  -> pequeños  
+ 2-6  -> medianos  
+ 7-12 -> mayores  
  

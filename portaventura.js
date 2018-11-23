@@ -121,8 +121,35 @@ const configs = [
 		child_age3: '-1'
 	}, 
 
-	configPortAventura_2_2_mayores = { 
-		name: 'configPortAventura_2_2_mayores', 
+	configPortAventura_2_1_pequeño = {
+		name: 'configPortAventura_2_1_pequeño', 
+		adults: '2',
+		children: '1',
+		child_age1: '1',
+		child_age2: '-1',
+		child_age3: '-1'
+	}, 
+
+	configPortAventura_2_1_mediano = {
+		name: 'configPortAventura_2_1_mediano', 
+		adults: '2',
+		children: '1',
+		child_age1: '5',
+		child_age2: '-1',
+		child_age3: '-1'
+	}, 
+
+	configPortAventura_2_1_grande = {
+		name: 'configPortAventura_2_1_grande', 
+		adults: '2',
+		children: '1',
+		child_age1: '8',
+		child_age2: '-1',
+		child_age3: '-1'
+	}, 
+
+	configPortAventura_2_2_medianos = { 
+		name: 'configPortAventura_2_2_medianos', 
 		adults: '2',
 		children: '2',
 		child_age1: '2',
@@ -130,8 +157,8 @@ const configs = [
 		child_age3: '-1'
 	},
 
-	configPortAventura_3_2_mayores = {
-		name: 'configPortAventura_3_2_mayores', 
+	configPortAventura_3_2_medianos = {
+		name: 'configPortAventura_3_2_medianos', 
 		adults: '3',
 		children: '2',
 		child_age1: '2',
