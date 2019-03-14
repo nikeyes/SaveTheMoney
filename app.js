@@ -4,7 +4,7 @@ const portaventura = require('./portaventura');
 async function main()
 {
 	console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']', 'Start...');
-	//await portaventura.start();
+	await portaventura.start();
 	console.log('['+moment().format('YYYY-MM-DD HH:mm:ss')+']', 'End...');
 }
 
