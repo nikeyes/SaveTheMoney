@@ -107,8 +107,8 @@ class PortAventura {
 }
 
 const urlBase = 'https://booking.portaventura.com/desk/nReservations/jsp/C_Rates.jsp?idPartner=PORTAVENTURA&lang=es&inDay=#inDay#&inMonth=#inMonth#&inYear=#inYear#&outDay=#outDay#&outMonth=#outMonth#&outYear=#outYear#&hotelCode=#hotelCode#&rooms=1&adultsRoom1=#adults#&childrenRoom1=#children#&child1Room1=#child_age1#&child2Room1=#child_age2#&child3Room1=#child_age3#&idPrm=MBAVENTURA&idONg=X80&idNom=PORTAVENTURA&userCurrency=EUR&fromSearchAvailability=Y';
-const inDate = moment().add(1, 'days').set({hour:0,minute:0,second:0,millisecond:0});
-const outDate = moment('2020-01-15', 'YYYY-MM-DD');
+const inDate = moment('2020-03-27', 'YYYY-MM-DD');//moment().add(1, 'days').set({hour:0,minute:0,second:0,millisecond:0});
+const outDate = moment('2021-01-15', 'YYYY-MM-DD');
 
 const configs = [
 	
@@ -120,7 +120,25 @@ const configs = [
 		child_age2: '-1',
 		child_age3: '-1'
 	}, 
-
+	
+	configPortAventura_2_2_medianos = {
+		name: 'configPortAventura_2_2_medianos', 
+		adults: '2',
+		children: '2',
+		child_age1: '3',
+		child_age2: '6',
+		child_age3: '-1'
+	},
+	
+	configPortAventura_3_2_medianos = {
+		name: 'configPortAventura_3_2_medianos', 
+		adults: '3',
+		children: '2',
+		child_age1: '3',
+		child_age2: '6',
+		child_age3: '-1'
+	}
+/*
 	configPortAventura_2_1_pequeño = {
 		name: 'configPortAventura_2_1_pequeño', 
 		adults: '2',
@@ -166,7 +184,7 @@ const configs = [
 		child_age3: '-1'
 	}
 	
-	/*configPortAventura_2_2_menos = { 
+	configPortAventura_2_2_menos = { 
 		adults: '2',
 		children: '2',
 		child_age1: '1',
@@ -199,23 +217,28 @@ const rooms = [
 	},
 	{
 		hotelCode: '7241689',
-		roomName: 'PortAventura Woody',
-		roomDescription: 'Deluxe Woody'
-	},
-	{
-		hotelCode: '7241689',
 		roomName: 'PortAventura Standard',
 		roomDescription: 'Standard'
 	},
 	{
+		hotelCode: '7241689',
+		roomName: 'PortAventura Standard adaptada',
+		roomDescription: 'Standard adaptada'
+	},
+	{
 		hotelCode: '7241688',
 		roomName: 'Caribe San Juan',
-		roomDescription: 'Deluxe Club San Juan'
+		roomDescription: 'Deluxe Superior Club San Juan'
 	},
 	{
 		hotelCode: '7241688',
 		roomName: 'Caribe Standard',
 		roomDescription: 'Standard'
+	},
+	{
+		hotelCode: '7241688',
+		roomName: 'Caribe Standard adaptada',
+		roomDescription: 'Standard adaptada'
 	},
 	{
 		hotelCode: '7241688',
@@ -234,13 +257,13 @@ const rooms = [
 	},
 	{
 		hotelCode: '7241691',
-		roomName: 'Gold River Adaptada',
-		roomDescription: 'Adaptada'
+		roomName: 'Gold River Standard adaptada	',
+		roomDescription: 'Standard adaptada'
 	},
 	{
 		hotelCode: '7241691',
 		roomName: 'Gold River Superior',
-		roomDescription: 'Superior'
+		roomDescription: 'Superior The Callaghan'
 	},
 	{
 		hotelCode: '7241690',
@@ -253,10 +276,25 @@ const rooms = [
 		roomDescription: 'Adaptada'
 	},
 	{
+		hotelCode: '7241690',
+		roomName: 'El Paso Deluxe Superior Woody',
+		roomDescription: 'Deluxe Superior Woody'
+	},
+	{
 		hotelCode: '7241692',
 		roomName: 'Roulette Standard',
 		roomDescription: 'Standard'
-	}
+	},
+	{
+		hotelCode: '7241892',
+		roomName: 'Deluxe Colorado Creek',
+		roomDescription: 'Deluxe Colorado'
+	},
+	{
+		hotelCode: '7241892',
+		roomName: 'Deluxe Colorado Creek Adaptada',
+		roomDescription: 'Deluxe Colorado Adaptada'
+	},
 ];
 
 module.exports = new PortAventura();
